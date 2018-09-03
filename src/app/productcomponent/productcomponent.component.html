@@ -1,0 +1,48 @@
+<div class="container">
+  <!-- cart   -->
+  <div class="text-right">
+    <button class="btn btn-link " (click)="displayAllCartItem()"><span class="glyphicon glyphicon-shopping-cart"></span ><sup>{{cartValue}}</sup></button> 
+    <button class="btn btn-link "><span class="glyphicon glyphicon-heart-empty"></span > <sup>{{favValue}}</sup></button>
+  </div>
+  <div class="col-md-3 sider list"> 
+    <ul  *ngFor='let productName of productNames; let i=index '>
+      <li><button class=" btn btn-outline btn-block" (click)='showItem(i,productName)'>{{productName}} </button></li>
+    </ul>  
+  </div>
+  
+  <div class="col-md-9 display" >
+    <!-- strat all images view -->
+    <div class="col-md-4" *ngFor="let allImgagesUrl of allImgaesurls;let i=index">
+      <div class="mycard">
+        <div class="card" style="width: 18rem;">
+          <!-- fav check -->
+          <div class="fav-icon ">
+            <span *ngIf="checkItemInFav(allImgagesUrl['id'])==false; else red" class="glyphicon glyphicon-heart-empty"   (click)="addToFav(allImgagesUrl['id'])" ></span>
+            <ng-template #red> <span (click)="removeArrFav(allImgagesUrl['id'])" style="color:red" class="glyphicon glyphicon-heart"></span> </ng-template>
+          </div>
+            <img src="{{allImgagesUrl['url']}}" alt="no img" class="{{allImgagesUrl['Category']}} img-responsive">
+            <div class="card-body m-10">
+              <h5 class="card-title">{{allImgagesUrl['Name']}}</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <!-- //add to cart check -->
+              <div *ngIf="checkItemInCart(allImgagesUrl['id'])==false; else removecart">
+              <button (click)="addToCart(allImgagesUrl['id'])"  class="btn btn-primary btn-block ">Add to cart</button>
+              </div>
+              <ng-template #removecart>
+                  <button (click)="remocveCart(allImgagesUrl['id'])"  class="btn btn-danger btn-block ">Remove from cart</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+    </div>  
+   <!-- close all images view -->
+  </div>
+  <div class="footer">
+    <div class="text-center ">Footer area</div>
+   
+  </div>
+  
+</div>
+
+
+

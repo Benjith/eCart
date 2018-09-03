@@ -1,0 +1,36 @@
+.display
+{
+    /* height: 100px; */
+    border: 1px solid;
+}
+ul {
+    list-style: none;
+  }
+
+.card{
+    padding: 10px;
+    border: 1px solid;
+}
+.fav-icon {
+    
+    opacity: 0;
+}
+.mycard{
+    margin: 24px;
+}
+.mycard:hover .fav-icon{
+  opacity: 1;
+}
+.glyphicon{
+    color: black;
+}
+.card-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+#mydiv:hover{
+    font-size: 36px;
+}
+
