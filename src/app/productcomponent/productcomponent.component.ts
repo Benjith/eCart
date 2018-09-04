@@ -6,7 +6,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
   styleUrls: ['./productcomponent.component.css']
 })
 export class ProductcomponentComponent implements OnInit {
-  productNames =['Men','Women','Kids'];
+  productNames =['Men','Women','Kid'];
   hiddenID=[{value:-1,name:''}];
   favValue:number=0;
   cartValue=0;
@@ -14,12 +14,19 @@ export class ProductcomponentComponent implements OnInit {
   addToCartItem:string='';
   
  allImgaesurls=[
-                 {id:'1',Name:'Royal Enfeild',Category:'imgMen',url:'../../assets/images/t (6).jpg'},
-                 {id:'2',Name:'T Shirt',Category:'imgMen',url:'../../assets/images/t (5).jpg'},
-                 {id:'3',Name:'Royal Enfeild',Category:'imgMen',url:'../../assets/images/t (2).jpg'},
-                 {id:'4',Name:'Royal Enfeild',Category:'imgMen',url:'../../assets/images/t (2).jpg'},
-                 {id:'5',Name:'Royal Enfeild',Category:'imgMen',url:'../../assets/images/t (2).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'imgMen',url:'../../assets/images/t (2).jpg'},
+                 {id:'1',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (6).jpg'},
+                 {id:'2',Name:'T Shirt',Category:'Kid',url:'../../assets/images/t (5).jpg'},
+                 {id:'3',Name:'Royal Enfeild',Category:'Women',url:'../../assets/images/t (2).jpg'},
+                 {id:'4',Name:'Royal Enfeild',Category:'Women',url:'../../assets/images/t (6).jpg'},
+                 {id:'5',Name:'Royal Enfeild',Category:'Kid',url:'../../assets/images/t (2).jpg'},
+                 {id:'6',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (5).jpg'},
+                 {id:'6',Name:'Royal Enfeild',Category:'Kid',url:'../../assets/images/t (2).jpg'},
+                 {id:'6',Name:'Royal Enfeild',Category:'Women',url:'../../assets/images/t (6).jpg'},
+                 {id:'6',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (2).jpg'},
+                 {id:'6',Name:'Royal Enfeild',Category:'Kid',url:'../../assets/images/t (5).jpg'},
+                 {id:'6',Name:'Royal Enfeild',Category:'Women',url:'../../assets/images/t (2).jpg'},
+                 {id:'6',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (6).jpg'},
+                 {id:'6',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (2).jpg'},
              
   ]
   
@@ -35,7 +42,7 @@ export class ProductcomponentComponent implements OnInit {
     this.hiddenID=[{value:-1,name:''}];
     this.hiddenID['value']=itemId;
     this.hiddenID['name']=name;
-    alert(this.hiddenID['name']);
+    // alert(this.hiddenID['name']);
   }
   
  favCount(){
@@ -90,6 +97,26 @@ export class ProductcomponentComponent implements OnInit {
     return true;
    }
  }
+ checkCategoryClick(Category)
+ {
+  console.log(this.hiddenID['name']+"  "+Category);
+  
+  if(this.hiddenID['name']==undefined)
+  {
+    return true;
+  }
+  else
+  {
+    if(this.hiddenID['name']==Category)
+    {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  
 
+}
 
 }

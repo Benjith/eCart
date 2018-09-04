@@ -12,15 +12,16 @@
   
   <div class="col-md-9 display" >
     <!-- strat all images view -->
-    <div class="col-md-4" *ngFor="let allImgagesUrl of allImgaesurls;let i=index">
-      <div class="mycard">
+    <div *ngFor="let allImgagesUrl of allImgaesurls;let i=index">
+     <div class="col-md-4 " *ngIf="checkCategoryClick(allImgagesUrl['Category'])==true">
+        <div class="mycard">
         <div class="card" style="width: 18rem;">
           <!-- fav check -->
           <div class="fav-icon ">
             <span *ngIf="checkItemInFav(allImgagesUrl['id'])==false; else red" class="glyphicon glyphicon-heart-empty"   (click)="addToFav(allImgagesUrl['id'])" ></span>
             <ng-template #red> <span (click)="removeArrFav(allImgagesUrl['id'])" style="color:red" class="glyphicon glyphicon-heart"></span> </ng-template>
           </div>
-            <img src="{{allImgagesUrl['url']}}" alt="no img" class="{{allImgagesUrl['Category']}} img-responsive">
+            <img src="{{allImgagesUrl['url']}}" alt="no img" class="{{allImgagesUrl['Category']}} img-responsive" >
             <div class="card-body m-10">
               <h5 class="card-title">{{allImgagesUrl['Name']}}</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -34,7 +35,9 @@
             </div>
           </div>
         </div>
-    </div>  
+      </div>
+    </div>   
+    
    <!-- close all images view -->
   </div>
   <div class="footer">
@@ -43,6 +46,5 @@
   </div>
   
 </div>
-
 
 
