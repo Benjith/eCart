@@ -5,18 +5,21 @@ import { AppComponent } from './app.component';
 import { ProductcomponentComponent } from './productcomponent/productcomponent.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SignupComponent } from './signup/signup.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { FetchAllProductService }from './fetch-all-product.service' ;
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductcomponentComponent,
-    SignupComponent
+    SignupComponent,
+    ProductdetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [FetchAllProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

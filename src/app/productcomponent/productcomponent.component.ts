@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import {FetchAllProductService} from '../fetch-all-product.service';
 
 @Component({
   selector: 'app-productcomponent',
@@ -12,28 +13,13 @@ export class ProductcomponentComponent implements OnInit {
   cartValue=0;
   btnStyle:string;
   addToCartItem:string='';
-  
- allImgaesurls=[
-                 {id:'1',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (6).jpg'},
-                 {id:'2',Name:'T Shirt',Category:'Kid',url:'../../assets/images/t (5).jpg'},
-                 {id:'3',Name:'Royal Enfeild',Category:'Women',url:'../../assets/images/t (2).jpg'},
-                 {id:'4',Name:'Royal Enfeild',Category:'Women',url:'../../assets/images/t (6).jpg'},
-                 {id:'5',Name:'Royal Enfeild',Category:'Kid',url:'../../assets/images/t (2).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (5).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'Kid',url:'../../assets/images/t (2).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'Women',url:'../../assets/images/t (6).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (2).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'Kid',url:'../../assets/images/t (5).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'Women',url:'../../assets/images/t (2).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (6).jpg'},
-                 {id:'6',Name:'Royal Enfeild',Category:'Men',url:'../../assets/images/t (2).jpg'},
-             
-  ]
-  
   arrAddtoFav=[];
   arrAddtoCart=[];
-  constructor() {this.btnStyle="glyphicon glyphicon-heart-empty"; }
- 
+  constructor(public productService:FetchAllProductService)
+   {
+     this.btnStyle="glyphicon glyphicon-heart-empty";
+    }
+    allImgaesurls=this.productService.allImgaesurls;
 
   ngOnInit() {
   }
